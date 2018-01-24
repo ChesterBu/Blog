@@ -1,5 +1,19 @@
 # VUE
 
+- vue
+
+![自带指令](https://github.com/ChesterBu/Blog/blob/master/img/vueImg/vue.png?raw=true)
+
+## vue 指令
+
+- vue指令
+
+![自带指令](https://github.com/ChesterBu/Blog/blob/master/img/vueImg/vdirective.png?raw=true)
+
+- 自定义指令
+
+![自定义指令](https://github.com/ChesterBu/Blog/blob/master/img/vueImg/directive.png?raw=true)
+
 ## vue 双向绑定的简单实现
 
 ```html
@@ -34,14 +48,17 @@ set(val){
 
 obj.name本质就是调用set方法，从而导致循环调用所以要加个temp临时变量。
 
-## VUE指令
+## vue 的生命周期
 
+- 生命周期
 
+![生命周期](https://github.com/ChesterBu/Blog/blob/master/img/vueImg/lifecycle.png?raw=true)
 
+- 钩子函数
 
+![钩子函数](https://github.com/ChesterBu/Blog/blob/master/img/vueImg/lifecycle-hook.png?raw=true)
 
+## vue API
 
+![API](https://github.com/ChesterBu/Blog/blob/master/img/vueImg/vueAPI.png?raw=true)
 
-## VUE 的生命周期
-
-![生命周期]()
