@@ -13,9 +13,10 @@ ChesterBu 写博客的地方
 * [CSS清除浮动](https://github.com/ChesterBu/Blog/issues/5)
 * [CSS居中决策树](https://github.com/ChesterBu/Blog/issues/4)
 
-
 ## JS
 
 ## VUE
 
 * [vue基础](https://github.com/ChesterBu/Blog/issues/3)
+* [vue实例](https://github.com/ChesterBu/Blog/issues/7)
+* [vue生命周期](https://github.com/ChesterBu/Blog/issues/8)
