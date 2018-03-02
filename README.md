@@ -16,7 +16,7 @@ ChesterBu 写博客的地方
 
 ## JS
 
-* [CSS双栏式布局](https://github.com/ChesterBu/Blog/issues/12)
+* [原型链](https://github.com/ChesterBu/Blog/issues/12)
 
 ## JQuery
 
