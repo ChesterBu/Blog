@@ -37,9 +37,11 @@ return obj
 这里就有一个重要的认识了，虽然名字很像，但是原型链并不是prototype属性，同时原型链指向“父类”的prototype。几乎所有对象都有原型链（除了null和undefined），通过__proto__ 可以看到原型链指向什么（当然最好使用 Object.getPrototypeOf 取原型链）
 
 通过实验可以发现，js中对象的链可以非常复杂。
-一图胜千言。这里借一张图。
+一图胜千言。这里借两张图。
 
 ![prototype](https://github.com/ChesterBu/Blog/blob/master/img/jsImg/prototype.png?raw=true)
+![prototype2](https://github.com/ChesterBu/Blog/blob/master/img/jsImg/prototype2.png?raw=true)
+
 简而言之
 
 - 函数对象，Function，Object，Array等等的原型链都指向Function.prototype
@@ -60,5 +62,18 @@ return obj
 - 所有函数的prototype.constructor都指向自己
 - 因此所有new出来的对象也都有一个reference找到自己的构造函数
 
+## 小结
 
+- 每个对象都有__proto__属性，但只有函数对象才有prototype属性
 
+- 创建函数时，js会为函数自动添加prototype属性，它的值是空对象，而把函数当作构造函数调用时就会启动new的过程
+
+- 每个js对象一定对应一个原型对象，并从原型对象上继承属性和方法（此处涉及设计模式中原型模式的内容）
+
+- 对象的__proto__属性的值就是他所对应的原型对象
+
+- 所以__proto__才是原型链
+
+## 继承
+
+- [JavaScript深入之继承的多种方式和优缺点](https://github.com/mqyqingfeng/Blog/issues/16)
