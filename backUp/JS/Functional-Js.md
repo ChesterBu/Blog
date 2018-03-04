@@ -26,6 +26,56 @@
 
 - 在数学中， f ∘ g 是函数的组合，所以读作 “函数 f 与函数 g 的复合函数”，或者更通用的说法是 “在 g 之后调用 f”。所以 (f ∘ g)(x) 相当于先以 x 为自变量调用函数 g，再以结果为自变量调用函数 f，简写成 f(g(x))。
 
+- 接受两个函数的
+
+```js
+function compose2(fn2,fn1){
+    return function composed(origValue){
+        return fn2(fn1(origValue))
+    }
+}
+
+```
+
+- 通用型
+
+```js
+function compose(...fns) {
+    return function composed(result){
+        // 拷贝一份保存函数的数组
+        var list = fns.slice();
+        while (list.length > 0) {
+            // 将最后一个函数从列表尾部拿出
+            // 并执行它
+            result = list.pop()( result );
+        }
+        return result;
+    };
+}
+
+function compose(...fns) {
+    return function composed(result){
+        return fns.reverse().reduce( function reducer(result,fn){
+            return fn( result );
+        }, result );
+    };
+}
+
+```
+
+- 但是，这种实现局限处在于外层的组合函数（也就是，组合中的第一个函数）只能接收一个参数。其他大多数实现在首次调用的时候就把所有参数传进去了。如果组合中的每一个函数都是一元的，这个方案没啥大问题。但如果你需要给第一个调用传递多参数，那么你可能需要不同的实现方案。
+
+```js
+function compose(...fns) {
+    return fns.reverse().reduce( function reducer(fn1,fn2){
+        //每次都将composed当作fn1再传进去，再包
+        return function composed(...args){
+            return fn2( fn1( ...args ) );
+        };
+    } );
+}
+```
+
 ## 柯里函数
 
 - 柯里函数是一种一次只接收单个参数的函数。
