@@ -147,3 +147,42 @@ function uncurry(fn) {
     };
 }
 ```
+
+## 闭包
+
+1. 一个没有闭包的编程语言可以用对象来模拟闭包。
+1. 一个没有对象的编程语言可以用闭包来模拟对象。
+
+- 思考：
+
+```js
+function person(name,age) {
+    return happyBirthday(){
+        age++;
+        console.log(
+            "Happy " + age + "th Birthday, " + name + "!"
+        );
+    }
+}
+
+var birthdayBoy = person( "Kyle", 36 );
+
+birthdayBoy();      // Happy 37th Birthday, Kyle!
+
+var birthdayBoy = {
+    name: "Kyle",
+    age: 36,
+    happyBirthday() {
+        this.age++;
+        console.log(
+            "Happy " + this.age + "th Birthday, " + this.name + "!"
+        );
+    }
+};
+
+birthdayBoy.happyBirthday();
+// Happy 37th Birthday, Kyle!
+
+```
+
+- 闭包和对象是状态的同构表示（及其相关功能）。(同构：下次你听到谁说 “X 与 Y 是同构的”，他们的意思是，“X 和 Y 可以从两者中的任意一方转化到另一方，并且无论怎样都保持了相同的特性。”)
