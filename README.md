@@ -17,10 +17,12 @@ ChesterBu 写博客的地方
 ## JS
 
 * [原型链](https://github.com/ChesterBu/Blog/issues/12)
+* [函数式js](https://github.com/ChesterBu/Blog/blob/master/backUp/JS/Functional-Js.md)
 
 ## JQuery
 
 * [JQuery架构](https://github.com/ChesterBu/Blog/issues/10)
+
 
 ## VUE
 
