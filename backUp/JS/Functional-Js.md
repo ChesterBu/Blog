@@ -236,3 +236,63 @@ myFunctor :: (a -> b) -> f a -> f b
 - Functor ：使用 fmap 应用一个函数到一个上下文中的值；
 - Applicative ：使用 <*> 应用一个上下文中的函数到一个上下文中的值；
 - Monad ：使用 >>= 应用一个接收一个普通值但是返回一个在上下文中的值的函数到一个上下文中的值。
+
+## 何为自函子上的幺半群？
+
+```js
+promises/A is a Monad
+//
+// To be a Monad, it must provide at least:
+// - A unit (aka return or mreturn) operation that creates a corresponding
+//   monadic value from a non-monadic value.
+// - A bind operation that applies a function to a monadic value
+//
+// And it must satisfy the 3 Monadic Laws:
+// 1. unit a >>= f == f
+// 2. m >>= unit == m
+// 3.(m >>= f) >>= g == m >>= (\x -> f x >>= g)
+```
+
+### 自函子
+
+- 函子即所谓的 Functor，是一个能把值装在里面，通过传入函数来变换容器内容的容器：简化的理解里，前文中的 Promise.resolve 就相当于这样的映射，能把任意值装进 Promise 容器里。而自函子则是【能把范畴映射到本身】的 Functor，可以对应于 Promise(A).then() 里仍然返回 Promise 本身。
+
+### 幺半群
+
+- 幺半群即所谓的 Monadic，满足两个条件：单位元与结合律。
+
+- 单位元是这样的两个条件：
+
+- - 首先，作用到单位元 unit(a) 上的 f，结果和 f(a) 一致：
+
+```javascript
+const value = 6
+const f = x => Promise.resolve(x + 6)
+
+// 下面两个值相等
+const left = Promise.resolve(value).then(f)
+const right = f(value)
+```
+
+- - 其次，作用到非单位元 m 上的 unit，结果还是 m 本身：
+```javascript
+const value = 6
+
+// 下面两个值相等
+const left = Promise.resolve(value)
+const right = Promise.resolve(value).then(x=> Promise.resolve(x))
+```
+
+- 至于结合律则是这样的条件：(a • b) • c 等于 a • (b • c)：
+
+```javascript
+const f = a => Promise.resolve(a * a)
+const g = a => Promise.resolve(a - 6)
+
+const m = Promise.resolve(7)
+
+// 下面两个值相等
+const left = m.then(f).then(g)
+const right = m.then(x => f(x).then(g))
+
+```
