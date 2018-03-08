@@ -277,6 +277,7 @@ const right = f(value)
 ```
 
 - - 其次，作用到非单位元 m 上的 unit，结果还是 m 本身：
+
 ```javascript
 const value = 6
 
