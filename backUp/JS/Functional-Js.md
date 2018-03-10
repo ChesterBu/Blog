@@ -255,7 +255,54 @@ birthdayBoy.happyBirthday();
 - 所谓递归，是当一个函数调用自身，并且该调用做了同样的事情，这个循环持续到基本条件满足时，调用循环返回。
 - 警告： 如果你不能确保基本条件是递归的 终结者，递归将会一直执行下去，并且会把你的项目损坏或锁死；恰当的基本条件十分重要！
 
+## 容器
+
+- 首先我们将创建一个容器（container）。这个容器必须能够装载任意类型的值；否则的话，像只能装木薯布丁的密封塑料袋是没什么用的。这个容器将会是一个对象，但我们不会为它添加面向对象观念下的属性和方法。是的，我们将把它当作一个百宝箱——一个存放宝贵的数据的特殊盒子。
+
+```js
+var Container = function(x) {
+  this.__value = x;
+}
+
+Container.of = function(x) {
+    return new Container(x);
+};
+```
+
+- 们将使用 Container.of 作为构造器（constructor），这样就不用到处去写糟糕的 new 关键字了，非常省心。实际上不能这么简单地看待 of 函数，但暂时先认为它是把值放到容器里的一种方式。
+
+在继续后面的内容之前，先澄清几点：
+
+- Container 是个只有一个属性的对象。尽管容器可以有不止一个的属性，但大多数容器还是只有一个。我们很随意地把 Container 的这个属性命名为 __value。
+- __value 不能是某个特定的类型，不然 Container 就对不起它这个名字了。
+- 数据一旦存放到 Container，就会一直待在那儿。我们可以用 .__value 获取到数据，但这样做有悖初衷。
+
 ## 函子
+
+- 一旦容器里有了值，不管这个值是什么，我们就需要一种方法来让别的函数能够操作它。
+
+```js
+Container.prototype.map = function(f){
+  return Container.of(f(this.__value))
+}
+```
+
+- 这个 map 跟数组那个著名的 map 一样，除了前者的参数是 Container a 而后者是 [a]。它们的使用方式也几乎一致：
+
+```js
+Container.of(2).map(function(two){ return two + 2 })
+//=> Container(4)
+
+Container.of("flamethrowers").map(function(s){ return s.toUpperCase() })
+//=> Container("FLAMETHROWERS")
+
+Container.of("bombs").map(concat(' away')).map(_.prop('length'))
+//=> Container(10)
+```
+
+- 为什么要使用这样一种方法？因为我们能够在不离开 Container 的情况下操作容器里面的值。这是非常了不起的一件事情。Container 里的值传递给 map 函数之后，就可以任我们操作；操作结束后，为了防止意外再把它放回它所属的 Container。这样做的结果是，我们能连续地调用 map，运行任何我们想运行的函数。甚至还可以改变值的类型，就像上面最后一个例子中那样。
+
+- 等等，如果我们能一直调用 map，那它不就是个组合（composition）么！这里边是有什么数学魔法在起作用？是 functor。各位，这个数学魔法就是 functor。
 
 - Functor 是 可以被 map over 的类型.
 - 平常我们可以把 a 到 b 的映射可以叫做 map, 映射的方式就是函数了.
@@ -269,7 +316,86 @@ myFunctor :: (a -> b) -> f a -> f b
 意思是“给我一个传入a返回b的函数和一个包含a（一个或多个）的容器，我会返回一个包含b（一个或多个）的容器”
 ```
 
-- Functor 的作用就是应用一个函数到一个上下文中的值：
+- Functor 的作用就是应用一个函数到一个上下文中的值;
+
+## 薛定谔的 Maybe
+
+- 说实话 Container 挺无聊的，而且通常我们称它为 Identity，与 id 函数的作用相同（这里也是有数学上的联系的，我们会在适当时候加以说明）。除此之外，还有另外一种 functor，那就是实现了 map 函数的类似容器的数据类型，这种 functor 在调用 map 的时候能够提供非常有用的行为。现在让我们来定义一个这样的 functor。
+
+```js
+var Maybe = function(x) {
+  this.__value = x;
+}
+
+Maybe.of = function(x) {
+  return new Maybe(x);
+}
+
+Maybe.prototype.isNothing = function() {
+  return (this.__value === null || this.__value === undefined);
+}
+
+Maybe.prototype.map = function(f) {
+  return this.isNothing() ? Maybe.of(null) : Maybe.of(f(this.__value));
+}
+```
+
+- Maybe 看起来跟 Container 非常类似，但是有一点不同：Maybe 会先检查自己的值是否为空，然后才调用传进来的函数。这样我们在使用 map 的时候就能避免恼人的空值了
+
+## “纯”错误处理
+
+- 说出来可能会让你震惊，throw/catch 并不十分“纯”。当一个错误抛出的时候，我们没有收到返回值，反而是得到了一个警告！抛错的函数吐出一大堆的 0 和 1 作为盾和矛来攻击我们，简直就像是在反击输入值的入侵而进行的一场电子大作战。有了 Either 这个新朋友，我们就能以一种比向输入值宣战好得多的方式来处理错误，那就是返回一条非常礼貌的消息作为回应。我们来看一下：
+
+```js
+var Left = function(x) {
+  this.__value = x;
+}
+
+Left.of = function(x) {
+  return new Left(x);
+}
+
+Left.prototype.map = function(f) {
+  return this;
+}
+
+var Right = function(x) {
+  this.__value = x;
+}
+
+Right.of = function(x) {
+  return new Right(x);
+}
+
+Right.prototype.map = function(f) {
+  return Right.of(f(this.__value));
+}
+
+```
+
+- Left 就像是青春期少年那样无视我们要 map 它的请求。Right 的作用就像是一个 Container（也就是 Identity）。这里强大的地方在于，Left 有能力在它内部嵌入一个错误消息。
+
+- 假设有一个可能会失败的函数，就拿根据生日计算年龄来说好了。的确，我们可以用 Maybe(null) 来表示失败并把程序引向另一个分支，但是这并没有告诉我们太多信息。很有可能我们想知道失败的原因是什么。用 Either 写一个这样的程序看看：
+
+```js
+var moment = require('moment');
+
+//  getAge :: Date -> User -> Either(String, Number)
+var getAge = curry(function(now, user) {
+  var birthdate = moment(user.birthdate, 'YYYY-MM-DD');
+  if(!birthdate.isValid()) return Left.of("Birth date could not be parsed");
+  return Right.of(now.diff(birthdate, 'years'));
+});
+
+getAge(moment(), {birthdate: '2005-12-12'});
+// Right(9)
+
+getAge(moment(), {birthdate: 'balloons!'});
+// Left("Birth date could not be parsed")
+```
+
+- 通俗点来讲，一个函数在调用的时候，如果被 map 包裹了，那么它就会从一个非 functor 函数转换为一个 functor 函数。我们把这个过程叫做 lift。一般情况下，普通函数更适合操作普通的数据类型而不是容器类型，在必要的时候再通过 lift 变为合适的容器去操作容器类型。这样做的好处是能得到更简单、重用性更高的函数，它们能够随需求而变，兼容任意 functor。
+
 
 ## Applicative
 
