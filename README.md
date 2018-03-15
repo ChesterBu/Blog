@@ -33,3 +33,5 @@ ChesterBu 写博客的地方
 ## 面试题
 
 * [面试题总结](https://github.com/ChesterBu/Blog/blob/master/backUp/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93.md)
+
+* [从输入url到页面加载实现](https://segmentfault.com/a/1190000013662126#articleHeader9)
