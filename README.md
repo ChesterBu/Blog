@@ -33,6 +33,8 @@ ChesterBu 写博客的地方
 
 ## HTTP
 
+* [缓存](https://github.com/ChesterBu/Blog/blob/master/backUp/Internet/cache.md)
+
 ## 面试题
 
 * [面试题总结](https://github.com/ChesterBu/Blog/blob/master/backUp/%E9%9D%A2%E8%AF%95%E9%A2%98%E6%80%BB%E7%BB%93.md)
