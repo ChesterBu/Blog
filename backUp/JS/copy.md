@@ -1,4 +1,4 @@
-# JS深浅拷贝与Jquery深浅extend
+# JS深浅copy与深浅extend
 
 ## 数组的浅拷贝
 
