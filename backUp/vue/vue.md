@@ -21,7 +21,7 @@
 <script>
     let i = document.querySelector('#input');
     let obj = {};
-    let temp = {}; 
+    let temp = {};
     Object.defineProperty(obj,'name',{
         get(){  // 取obj值时触发
             return temp.name;

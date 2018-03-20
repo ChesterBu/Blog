@@ -20,7 +20,6 @@ ChesterBu 写博客的地方
 * [函数式js](https://github.com/ChesterBu/Blog/blob/master/backUp/JS/Functional-Js.md)
 * [JS深浅copy与深浅extend](https://github.com/ChesterBu/Blog/blob/master/backUp/JS/copy.md)
 
-
 ## JQuery
 
 * [JQuery架构](https://github.com/ChesterBu/Blog/issues/10)
@@ -31,6 +30,8 @@ ChesterBu 写博客的地方
 * [vue实例](https://github.com/ChesterBu/Blog/issues/7)
 * [vue生命周期](https://github.com/ChesterBu/Blog/issues/8)
 * [vue与MVVM](https://github.com/ChesterBu/Blog/issues/9)
+
+## HTTP
 
 ## 面试题
 

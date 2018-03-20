@@ -14,3 +14,8 @@
 
 但是对于强缓存，在未过期时，必须更新资源路径才能发起新的请求（更改了路径相当于是另一个资源了，这也是前端工程化中常用到的技巧）
 
+![区别图](https://github.com/ChesterBu/Blog/blob/master/img/netImg/cache1.png?raw=true)
+
+## 缓存头部关系
+
+![关系图]()
