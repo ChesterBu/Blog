@@ -18,4 +18,6 @@
 
 ## 缓存头部关系
 
-![关系图]()
+- [各种缓存头部详解](http://imweb.io/topic/5795dcb6fb312541492eda8c)
+
+![关系图](https://github.com/ChesterBu/Blog/blob/master/img/netImg/cache2.png?raw=true)
