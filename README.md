@@ -34,6 +34,7 @@ ChesterBu 写博客的地方
 ## HTTP
 
 * [缓存](https://github.com/ChesterBu/Blog/blob/master/backUp/Internet/cache.md)
+* [前端性能优化](https://github.com/ChesterBu/Blog/blob/master/backUp/Internet/performanceOpt.md)
 
 ## 面试题
 
