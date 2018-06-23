@@ -23,6 +23,7 @@ ChesterBu 写博客的地方
 ## PY
 
 * [数据类型](https://github.com/ChesterBu/Blog/blob/master/backUp/python/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
+* [文件操作](https://github.com/ChesterBu/Blog/blob/master/backUp/python/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C.md)
 
 ## JQuery
 
