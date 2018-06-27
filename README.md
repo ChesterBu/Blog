@@ -19,11 +19,14 @@ ChesterBu 写博客的地方
 * [原型链](https://github.com/ChesterBu/Blog/issues/12)
 * [函数式js](https://github.com/ChesterBu/Blog/blob/master/backUp/JS/Functional-Js.md)
 * [JS深浅copy与深浅extend](https://github.com/ChesterBu/Blog/blob/master/backUp/JS/copy.md)
+* [JS模块化](https://github.com/ChesterBu/Blog/blob/master/backUp/JS/module.md)
+* [RxJS](https://github.com/ChesterBu/Blog/blob/master/backUp/JS/Rxjs.md)
 
 ## PY
 
 * [数据类型](https://github.com/ChesterBu/Blog/blob/master/backUp/python/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B.md)
 * [文件操作](https://github.com/ChesterBu/Blog/blob/master/backUp/python/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C.md)
+* [函数](https://github.com/ChesterBu/Blog/blob/master/backUp/python/%E5%87%BD%E6%95%B0.md)
 
 ## JQuery
 
