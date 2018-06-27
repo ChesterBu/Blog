@@ -210,4 +210,77 @@
     * 难以维护
   * 这些问题可以通过现代模块化编码和项目构建来解决
 
-## COMMON.JS
+## CommonJS
+
+* module1.js
+
+  ```js
+  const os = require('os');
+  const hello = require('./module2')
+  const Square = require('./module3')
+  hello.hello()
+  console.log(os.hostname())
+  let a = new Square(10)
+  console.log(a.width)
+  ```
+
+* module2.js
+
+  ```js
+  exports.hello = ()=>{
+    console.log('hello');
+  }
+
+  ```
+
+* module3.js
+
+  ```js
+  module.exports = class Square {
+    constructor(width){
+        this.width = width
+    }
+  }
+  ```
+
+* module.exports与exports
+
+  * 事实的情况是酱紫的，**其实module.exports才是模块公开的接口**，每个模块都会自动创建一个module对象，对象有一个exports的属性，初始值是个空对象{}，module的公开接口就是这个属性——module.exports。既然如此那和exports对象有毛线关系啊！为什么我们也可以通过exports对象来公开接口呢？
+  * 为了方便，模块中会有一个exports对象，和module.exports指向同一个变量，所以我们修改exports对象的时候也会修改module.exports对象，这样我们就明白网上盛传的module.exports对象不为空的时候exports对象就自动忽略是怎么回事儿了，因为module.exports通过赋值方式已经和exports对象指向的变量不同了，exports对象怎么改和module.exports对象没关系了。
+
+## CommonJS模拟实现
+
+* commontest.js
+
+  ```js
+  module.exports = 'this is a test'
+
+  ```
+
+* common.js
+
+  ```js
+  let fs = require('fs')
+
+  function req(moduleName) {
+      let content = fs.readFileSync(moduleName,'utf-8')
+
+      let fn = new Function('exports','module','require','__dirname','__filename',content+'\n return module.exports')
+
+      // function fn(exports,module,require,dirname,filename) {     module.exports = ......
+      //        ....
+      //     return module.exports
+      // }
+      let module = {
+          exports:{}
+      }
+      return fn(module.exports,module,req,__dirname,__filename)
+  }
+
+  let str = req('./commontest.js')
+
+  console.log(str);  //this is a test
+
+  ```
+
+* 其实就是把本模块的module.exports通过函数传给另一个模块，然后在那个模块中给module.exports添加，随后返回
