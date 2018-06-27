@@ -49,7 +49,7 @@
 * module1.js
     ```js
     let myModule = {
-      data: 'atguigu.com',
+      data: 'sdcsdc',
       foo() {
         console.log(`foo() ${this.data}`)
       },
@@ -61,7 +61,7 @@
 * module2.js
     ```js
     let myModule2 = {
-      data: 'atguigu.com2222',
+      data: 'scaascacas',
       foo() {
         console.log(`foo() ${this.data}`)
       },
@@ -98,7 +98,7 @@
     (function (window) {
       //数据
 
-      let data = 'atguigu.com'
+      let data = 'ascascasc'
 
       //操作数据的函数
 
@@ -134,7 +134,7 @@
       myModule.bar()
       //myModule.otherFun()  //myModule.otherFun is not a function
       console.log(myModule.data) //undefined 不能访问模块内部数据
-      myModule.data = 'xxxx' //不是修改的模块内部的data
+      myModule.data = 'xxxx' //不能修改的模块内部的data
       myModule.foo() //没有改变
 
     </script>
@@ -153,7 +153,7 @@
     (function (window, $) {
       //数据
 
-      let data = 'atguigu.com'
+      let data = 'asdasdasd'
       //操作数据的函数
 
       function foo() {
@@ -209,3 +209,5 @@
     * 依赖模糊
     * 难以维护
   * 这些问题可以通过现代模块化编码和项目构建来解决
+
+## COMMON.JS
