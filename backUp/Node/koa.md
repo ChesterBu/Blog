@@ -1,4 +1,4 @@
-## Koa 源码解析
+# Koa 源码注解
 
 ## application
 
@@ -317,7 +317,9 @@ function compose (middleware) {
 
 ```
 
-- 画了张图来感受下这个函数做了什么吧，
+- 画了张图来感受下这个函数做了什么吧
+
+![koa](https://github.com/ChesterBu/Blog/blob/master/img/nodeImg/koa.png?raw=true)
 
 ### handleRequest
 
