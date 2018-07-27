@@ -3,7 +3,8 @@
 ## application
 
 ### 依赖项
-```js 
+
+```js
 /**
  * Module dependencies.
  */
@@ -31,7 +32,6 @@ const http = require('http');
 
 ```
 
-
 ### 文件主要导出了继承Emitter的Application类，
 
 ```js
@@ -41,7 +41,7 @@ const http = require('http');
  */
 
 module.exports = class Application extends Emitter {
- 
+
 }
 
 ```
@@ -79,6 +79,7 @@ module.exports = class Application extends Emitter {
 ```
 
 ### inspect，检查执行情况
+
 ```js
   /**
    * Inspect implementation.
@@ -115,7 +116,8 @@ module.exports = class Application extends Emitter {
 
 ### only,返回白名单
 
-- 式列
+- 示例
+
 ```js
 var obj = {
   name: 'tobi',
@@ -125,11 +127,11 @@ var obj = {
 };
 
 var user = only(obj, 'name last email');
-```
+
 
 yields:
 
-```js
+
 {
   name: 'tobi',
   last: 'holowaychuk',
@@ -153,8 +155,6 @@ module.exports = function(obj, keys){
 
 ```
 
-
-
 ### use,那么多代码其实只干了一件事 **this.middleware.push(fn)**
 
 ```js
@@ -172,6 +172,8 @@ use(fn) {
   }
 
 ```
+
+- 上面那个判断部分是检查是否为generator的写法，convert会将它转换，用co执行
 
 ### listen,本质就是调用http模块，http.createServer(app.callback()).listen(...)的缩写
 
@@ -193,7 +195,6 @@ use(fn) {
   }
 
 ```
-
 
 ### callback
 
@@ -298,7 +299,7 @@ function compose (middleware) {
    */
 
   createContext(req, res) {
- 
+
     const context = Object.create(this.context);
     const request = context.request = Object.create(this.request);
     const response = context.response = Object.create(this.response);
@@ -316,6 +317,7 @@ function compose (middleware) {
 
 ```
 
+- 画了张图来感受下这个函数做了什么吧，
 
 ### handleRequest
 
@@ -337,8 +339,6 @@ function compose (middleware) {
 
 
 ```
-
-
 
 ### respond，这个不是类上的方法，处理发送的数据
 
@@ -396,10 +396,9 @@ function respond(ctx) {
 
 ```
 
-
 ## Context
 
-### 依赖项
+### Context的依赖项
 
 ```js
 const util = require('util');
@@ -666,7 +665,6 @@ Delegator.prototype.method = function(name){
 - 从上面的代码中可以看到，它其实是在proto上新建一个与Request和Response上的方法名一样的函数，然后执行这个函数的时候，这个函数在去Request和Response上去找对应的方法并执行。
 
 - 所以在createContext时给context添加了很多属性就是为了这时可以用
- 
 
- ##Request与Response都是很多对原生res与req的处理，
+## Request与Response都是很多对原生res与req的处理
 
