@@ -1,13 +1,31 @@
-# 前端知识梳理
+# 知识体系梳理v1.0
 
-## JS
+## 计算机基础
+
+- <编码>
+- <深入理解计算机系统>
+- [操作系统(慕课李治军)](https://www.bilibili.com/video/av33136651)
+
+## JavaScript
+
+- <JavaScript高级程序设计>
+- [<ECMAScript6入门>](http://es6.ruanyifeng.com/)
+- [<JavaScript教程>](https://wangdoc.com/javascript/)
+- [<你所不知道的JavaScript>](https://github.com/JoeHetfield/You-Dont-Know-JS)
+- [算法(JavaScript实现)](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
+- [深入JavaScript](https://github.com/mqyqingfeng/Blog)
+- [JavaScript异步](https://github.com/wangfupeng1988/js-async-tutorial)
 
 ## 浏览器
 
-## 前后端通信
+## 通信
 
 ## Node
 
 ## 工程化
 
-## Vue源码
+## Vue
+
+----------
+
+## Write better code
