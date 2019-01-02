@@ -9,6 +9,7 @@ function A(name){
 let a = new A('hehe')
 
 -----------------
+
 let obj = new Object()
 
 obj.__proto__ = A.prototype
@@ -26,15 +27,15 @@ return obj
 
 ## 原型链和prototype属性
 
-上面的 __proto__ 是什么？
+上面的 `__proto__` 是什么？
 
 就是原型链，原型链是内部 [ [Prototype ]]，指向它“父类”的prototype。
 
 打开浏览器控制台，可以看到函数变量都有一个prototype属性（箭头函数没有）。
 
-通过这一句a.__proto__ = A.prototype; 说明a的原型链就是指向函数A的prototype属性。
+通过这一句a.`__proto__` = A.prototype; 说明a的原型链就是指向函数A的prototype属性。
 
-这里就有一个重要的认识了，虽然名字很像，但是原型链并不是prototype属性，同时原型链指向“父类”的prototype。几乎所有对象都有原型链（除了null和undefined），通过__proto__ 可以看到原型链指向什么（当然最好使用 Object.getPrototypeOf 取原型链）
+这里就有一个重要的认识了，虽然名字很像，但是原型链并不是prototype属性，同时原型链指向“父类”的prototype。几乎所有对象都有原型链（除了null和undefined），通过`__proto__`可以看到原型链指向什么（当然最好使用 Object.getPrototypeOf 取原型链）
 
 通过实验可以发现，js中对象的链可以非常复杂。
 一图胜千言。这里借两张图。
@@ -73,7 +74,3 @@ return obj
 - 对象的__proto__属性的值就是他所对应的原型对象
 
 - 所以__proto__才是原型链
-
-## 继承
-
-- [JavaScript深入之继承的多种方式和优缺点](https://github.com/mqyqingfeng/Blog/issues/16)
