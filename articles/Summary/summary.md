@@ -9,8 +9,8 @@
 ## JavaScript
 
 - <JavaScript高级程序设计>
-- [<ECMAScript6入门>](http://es6.ruanyifeng.com/)
 - [<JavaScript教程>](https://wangdoc.com/javascript/)
+- [<ECMAScript6入门>](http://es6.ruanyifeng.com/)
 - [<你所不知道的JavaScript>](https://github.com/JoeHetfield/You-Dont-Know-JS)
 - [算法(JavaScript实现)](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
 - [深入JavaScript](https://github.com/mqyqingfeng/Blog)
