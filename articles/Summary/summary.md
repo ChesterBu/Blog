@@ -15,6 +15,7 @@
 - [算法(JavaScript实现)](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
 - [深入JavaScript](https://github.com/mqyqingfeng/Blog)
 - [JavaScript异步](https://github.com/wangfupeng1988/js-async-tutorial)
+- [前端基础进阶](https://www.jianshu.com/p/cd3fee40ef59)
 
 ## 浏览器
 
