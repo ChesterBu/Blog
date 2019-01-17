@@ -9,7 +9,7 @@
 ## JavaScript
 
 - <JavaScript高级程序设计>
-- [<JavaScript教程>](https://wangdoc.com/javascript/)
+- [<JavaScript教程>](https://wangdoc.com/javascript/)
 - [<ECMAScript6入门>](http://es6.ruanyifeng.com/)
 - [<你所不知道的JavaScript>](https://github.com/JoeHetfield/You-Dont-Know-JS)
 - [算法(JavaScript实现)](https://github.com/trekhleb/javascript-algorithms/blob/master/README.zh-CN.md)
@@ -17,7 +17,6 @@
 - [JavaScript异步](https://github.com/wangfupeng1988/js-async-tutorial)
 - [前端基础进阶](https://www.jianshu.com/p/cd3fee40ef59)
 
----
  [我的总结](https://github.com/ChesterBu/Blog/blob/master/articles/Summary/JavaScript/js.md)
 
 ## 浏览器
@@ -30,6 +29,6 @@
 
 ## Vue
 
-----------
+---
 
 ## Write better code

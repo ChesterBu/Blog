@@ -2,11 +2,11 @@
 
 ## 数据类型
 
-- [数据类型总结](https://github.com/ChesterBu/Blog/blob/master/articles/Summary/JavaScript/type.md)
+- [数据类型总结](https://github.com/ChesterBu/Blog/blob/master/articles/Summary/JavaScript/type.md)
 
 ## 原型链
 
-- [原型链总结](https://github.com/ChesterBu/Blog/blob/master/articles/Summary/JavaScript/prototype.md)
+- [原型链总结](https://github.com/ChesterBu/Blog/blob/master/articles/Summary/JavaScript/prototype.md)
 
 ## 执行上下文
 

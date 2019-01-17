@@ -33,4 +33,3 @@
 
 ![job](https://github.com/ChesterBu/Blog/blob/master/img/Summary/JS/job.jpeg?raw=true)
 ![job2](https://github.com/ChesterBu/Blog/blob/master/img/Summary/JS/job2.jpeg?raw=true)
-
