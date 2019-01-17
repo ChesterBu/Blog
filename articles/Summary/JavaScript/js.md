@@ -13,3 +13,5 @@
 - [执行上下文总结](https://github.com/ChesterBu/Blog/blob/master/articles/Summary/JavaScript/context.md)
 
 ## 异步
+
+- [异步总结](https://github.com/ChesterBu/Blog/blob/master/articles/Summary/JavaScript/async.md)
