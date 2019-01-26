@@ -21,6 +21,9 @@
 
 ## 浏览器
 
+- [现代浏览器探秘](https://mp.weixin.qq.com/s/kOoGN5C0uYcnBCUwmPo9SA)
+- [浏览器渲染流程详细分析](https://juejin.im/entry/59f010fdf265da4315231caa)
+
 ## 通信
 
 ## Node
